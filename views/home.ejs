@@ -1,0 +1,338 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+           background-color: darkslategrey;
+        }
+
+        .font-colour{
+            color: white;
+            font-size: 120%;
+        }
+
+        .dropdown-header{
+            font-size: 150%;
+            color: white;
+        }
+
+
+        #information{
+            float: right;
+            margin-right: 20px;
+            width: 40%;
+
+
+            text-align: center;
+            background-color: white;
+            border-radius: 25px;
+
+        }
+
+        h2{
+            color: black;
+        }
+
+        .list-group-item{
+           padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .side {
+            border: #000000;
+            border-bottom-style: solid;
+            border-top-style: solid;
+        }
+
+        .dropdown-header{
+            color: black;
+        }
+
+        .test{
+            text-align: left;
+        }
+
+        .btn-primary
+        {
+            float:left;
+            margin-top: 5px;
+            padding:2px;
+        }
+
+        .delete{
+            background-color: red;
+        }
+
+        .update{
+            background-color: green;
+        }
+
+        .updateform{
+            float:right;
+        }
+
+
+         .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Navbar</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-2">The Zoo</h1>
+            <p class="lead">Check out all the animals in the zoo and catalogue them!</p>
+        </div>
+    </div>
+
+
+
+    <div id="information">
+        <h2 class="dropdown-header">Animals in Zoo</h2>
+
+            <%   var i = 1;
+                 zooView.forEach(function (animal){
+            %>
+
+               <ul class="side" style="list-style-type: none">
+                   <form method="post" action="/animal/update">
+                       <input type="hidden" value="<%= animal.value.rev %>" name="rev" j>
+                       <input type="hidden" value="<%= animal.value.id %>" name="id">
+
+                    <li class="col-md-5 btn btn-primary" style="font-weight: bold; font-size: 130%; font-style: italic">
+                        <input type="text" class="col-md-12 is-valid " id="animalID<%=i%>" name="name" placeholder="Animal Name: " value="<%= animal.value.name %>" required></li>
+                       </li>
+                       </br>
+                       </br>
+                       </br>
+
+                   <li class="test"><span style="font-weight: bold;">Species: </span>
+                       <input type="text" class="col-md-6 is-valid " name="species" placeholder="Species: " value="<%= animal.value.species %>" required></li>
+
+                   <li class="test"><span style="font-weight: bold;">Diet: </span>
+                       <input type="text" class="col-md-2 is-valid " name="diet1" placeholder="Diet 1: " value="<%= animal.value.diet[0] %>" required>
+                       <input type="text" class="col-md-2 is-valid " name="diet2" placeholder="Diet 2: " value="<%= animal.value.diet[1] %>" required>
+                       <input type="text" class="col-md-2 is-valid " name="diet3" placeholder="diet 3: " value="<%= animal.value.diet[2] %>" required></li>
+
+
+                   <li class="test"><span style="font-weight: bold;">Weight: </span>
+                       <input type="text" class="col-md-2 is-valid " name="avgWeight" placeholder="Weight kg: " value="<%= animal.value.avgWeight %>" required></li>
+
+                   <li class="test"><ul><span style="font-weight: bold;font-size: 105%;font-style: italic; border-bottom-style: solid">Habitat</span>
+
+
+                   <li class="test"><span style="font-weight: bold;">Climate: </span>
+                       <input type="text" class="col-md-2 is-valid " name="climate" placeholder="Climate: " value="<%= animal.value.habitat.climate %>" required></li>
+
+                   <li class="test"><span style="font-weight: bold;">Locations Found: </span>
+                       <input type="text" class="col-md-2 is-valid " name="area1" placeholder="Climate: " value="<%= animal.value.habitat.areas[0] %>" required>,
+                       <input type="text" class="col-md-2 is-valid " name="area2" placeholder="Climate: " value="<%= animal.value.habitat.areas[1] %>" required>,
+                       <input type="text" class="col-md-2 is-valid " name="area3" placeholder="Climate: " value="<%= animal.value.habitat.areas[2] %>" required></li>
+<!--                   <img src="http://localhost/General/Desktop/map1.jpg" alt="<%= animal.value.name %>" width="100" height="100">-->
+                       </ul></li>
+                       <input class ="update test btn btn-primary" type="submit" value="UPDATE" onclick=updateAlert(<%=i%>)>
+
+                   </form>
+                   <form class="delete test btn btn-primary" method="post" action="/animal/delete">
+                       <input type="hidden" value="<%= animal.value.rev %>" name="rev">
+                       <input type="hidden" value="<%= animal.value.id %>" name="id">
+                       <input type="submit" value="DELETE" onclick=deleteAlert(<%=i%>)>
+                   </form>
+
+               </br>
+                   </br>
+               </ul>
+
+
+            <% i+=1;
+                   });%>
+
+
+
+    </div>
+
+    <div class="col-md-5">
+        <form method="post" action="/animal/insert">
+            <div class="form-row">
+                <br />
+                <div class="col-md-12 mb-12">
+                    <label class="font-colour">Name</label>
+                    <input type="text" class="form-control is-valid" id="animalIDadd" name="name" placeholder="Animal Name: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-12 mb-12">
+                    <label class="font-colour">Species</label>
+                    <input type="text" class="form-control is-valid" id="sepeciesid" name="species" placeholder="Animal Species: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Diet 1</label>
+                    <input type="text" class="form-control is-valid" id="diet1id" name="diet1" placeholder="Diet 1: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Diet 2</label>
+                    <input type="text" class="form-control is-valid" id="diet2id" name="diet2" placeholder="Diet 2: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Diet 3</label>
+                    <input type="text" class="form-control is-valid" id="diet3id" name="diet3" placeholder="Diet 3: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-12 mb-12">
+                    <label class="font-colour">Average Weight</label>
+                    <input type="text" class="form-control is-valid" id="weightid" name="avgWeight" placeholder="Average Weight: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-12 mb-12">
+                    <label class="font-colour">Path to Image</label>
+                    <input type="text" class="form-control is-valid" id="imgid" name="pathToImage" placeholder="Path to Image: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-12 mb-12">
+                    <label class="font-colour">Climate</label>
+                    <input type="text" class="form-control is-valid" id="climateid" name="climate" placeholder="Climate: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Area 1</label>
+                    <input type="text" class="form-control is-valid" id="area1id" name="area1" placeholder="Area 1: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Area 2</label>
+                    <input type="text" class="form-control is-valid" id="area2id" name="area2" placeholder="Area 2: " value="" required>
+                </div>
+                <br />
+                <div class="col-md-4 mb-3">
+                    <label class="font-colour">Area 3</label>
+                    <input type="text" class="form-control is-valid" id="area3id" name="area3" placeholder="Area 3: " value="" required>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Submit" onclick="addAlert()">
+
+            </div> </form>
+
+
+    </div>
+
+
+
+
+    <script>
+        function updateAlert(y){
+            var x = document.getElementById("animalID"+y).value
+            alert(x+" has been updated successfully");
+        }
+
+        function addAlert(){
+            var x = document.getElementById("animalIDadd").value
+            alert(x+" has been added successfully");
+        }
+
+        function deleteAlert(y){
+            var x = document.getElementById("animalID"+y).value
+            alert(x+" has been deleted successfully");
+        }
+    </script>
+
+
+
+<!--    <div class="col-md-4">-->
+<!--        <ul class="list-group list-group-flush">-->
+<!--            <% zooView.forEach(function (animal){ %>-->
+<!--                <li class="list-group-item"><%= animal.value.name %>-->
+<!--                    <form method="get" action="/zoo/get/<%= animal.value.id%>">-->
+<!--                        <input type="hidden" value="<%= animal.value.rev%>" name="rev">-->
+<!--                        <input type="submit" onclick="showDiv()" value="Expand +">-->
+<!--                    </form>-->
+<!--                </li>-->
+
+<!--            <% }); %>-->
+<!--        </ul>-->
+
+
+
+       <script>
+
+
+
+
+
+
+        function showDiv() {
+
+            var x = document.getElementById("information");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+       </script>
+
+        <br>
+    </div>
+
+</div>
+    </body>
+</html>
+
+
+
+
+
+

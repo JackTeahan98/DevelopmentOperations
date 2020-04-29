@@ -1,0 +1,121 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-image: url(images/ADPbackground.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .font-colour{
+            color: white;
+            font-size: 120%;
+        }
+
+        .dropdown-header{
+            font-size: 150%;
+            color: white;
+        }
+    </style>
+
+
+</head>
+    <div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Navbar</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-2">The Zoo</h1>
+            <p class="lead">Check out all the animals in the zoo and catalogue them!</p>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+    <form>
+
+        <div class="form-row">
+         <br />
+            <div class="col-md-4 mb-3">
+                <label class="font-colour">isEdible??</label>
+                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="" required>
+            </div>
+            <br />
+            <div class="col-md-4 mb-3">
+                <label class="font-colour">Last name</label>
+                <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="font-colour">Username</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label class="font-colour">City</label>
+                <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="font-colour">State</label>
+                <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State" required>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="font-colour">Zip</label>
+                <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Zip" required>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+    </div>
+<h2 class="dropdown-header">______________________________________________________</h2>
+
+   <h2 class="dropdown-header">Animals in Zoo</h2>
+
+<div class="col-md-3">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    </div>
+    </body>
+</html>
