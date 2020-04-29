@@ -1,9 +1,9 @@
 pipeline {
   
   environment {
-    registryCredential = "teahands"
+    registryCredential = 'teahands'
     registry = "teahands/zoo-application"
-    dockerImage = ""  
+    dockerImage = ''
   }
   
   agent any
@@ -31,9 +31,17 @@ pipeline {
     
     stage('Building Image') {
       steps {
-        script{dockerImage = docker.build registry + ":$BUILD_NUMBER"
-              }
+        script{dockerImage = docker.build registry + ":$BUILD_NUMBER"}
       }
-      } 
+     } 
+    
+    stage('Push Image to DockerHub') {
+      steps {
+        script{docker.withRegistry('',registryCredential){
+        dockerImage.push()
+        }
+      }
+     } 
+    
   }
 }
