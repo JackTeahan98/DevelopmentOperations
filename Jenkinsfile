@@ -31,8 +31,8 @@ pipeline {
     
     stage('Building Image') {
       steps {
-        shcript{dockerImage = docker.build registry + ":$BUILD_NUMBER"
-          'npm test'
+        script{dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          
       }
       } 
   }
