@@ -1,4 +1,11 @@
 pipeline {
+  
+  environment {
+    registryCredential = "teahands"
+    registry = "teahands/zoo-application"
+    dockerImage = ""  
+  }
+  
   agent any
     
   tools {nodejs "node"}
@@ -21,5 +28,12 @@ pipeline {
         sh 'npm test'
       }
     }
+    
+    stage('Building Image') {
+      steps {
+        shcript{dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          'npm test'
+      }
+      } 
   }
 }
