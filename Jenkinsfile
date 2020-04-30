@@ -1,7 +1,7 @@
 pipeline {
   
   environment {
-    registryCredential = 'dockerhub'
+    registryCredential = 'DockerHub'
     registry = "teahands/zoo-application"
     dockerImage = ''
   }
