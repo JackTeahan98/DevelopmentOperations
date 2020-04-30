@@ -4,7 +4,9 @@
   "description": "zoo website performing CRUD on all documents",
   "main": "config.js",
   "scripts": {
-    "test": "mocha --exit test/test.js"
+    "test": "mocha --exit test/test.js",
+    "start": "npm start"
+    
   },
   "author": "",
   "license": "ISC",
