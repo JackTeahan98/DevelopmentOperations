@@ -46,7 +46,7 @@ pipeline {
     
     stage('Deploy Application') {
       steps {
-        sh 'docker run --name ZooApplication -p 3000:3000 teahands/zoo-application:4'
+        sh 'docker run --name ZooApp -p 3000:3000 $registry:$BUILD_NUMBER'
       }
     }
   }
